@@ -1,0 +1,36 @@
+<!-- <p>{{employDetails}}</p> -->
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container">
+    <p>Get employ details web service. </p>
+    <button (click)="logout()">Logout</button>
+
+  <p>{{message}}</p>
+  <table class="w3-table w3-bordered">
+    <tr>
+     
+      <tr>
+        <th>Id</th>
+        <th>Employ Name</th> 
+        <th>Employ Salary</th>
+        <th>Employ Age</th>
+        <th>Employ Images</th>
+      </tr>
+      <tr *ngFor="let details of employDetails">
+      <th>{{details.id}}</th>
+      <th>{{details.employee_name}}</th>
+      <th>{{details.employee_salary}}</th>
+      <th>{{details.employee_age}}</th>
+      <th *ngIf="details.profile_image.length > 0">details.profile_image</th>
+      <th *ngIf="!details.profile_image.length > 0">N/A</th>
+     
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

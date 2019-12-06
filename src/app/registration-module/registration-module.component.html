@@ -1,0 +1,52 @@
+<div class="containers">
+    <div class="row">
+    <div class="col-md-6">
+     <form #login = "ngForm" (ngSubmit) = "registerUsers(login.value)" novalidate >
+         
+        <div class="container">
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <p>{{message}}</p>
+            <p>Today's date - {{birthday | date:'dd-MM-yyyy HH:mm:ss'}}</p>
+            <hr>
+
+            <label for="psw"><b>Username:</b></label>
+            <input type = "text" name = "username" placeholder = "username" name="username" [(ngModel)]="user" #username="ngModel" required>
+            <div *ngIf="login.submitted && username.invalid" class="invalid-feedback">
+                <div *ngIf="username.errors.required">Username is required.</div>
+            </div>
+
+            <label for="psw"><b>Email:</b></label>
+            <input type = "text" name = "email" placeholder = "email" name="email" [(ngModel)]="name" #email="ngModel" required>
+            <div *ngIf="login.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Name is required.</div>
+            </div>
+        
+            <label for="psw"><b>Password:</b></label>
+            <input type = "password" name = "password" placeholder = "password" [(ngModel)]="password_details" #password="ngModel" required>
+            <div *ngIf="login.submitted && password.invalid" class="invalid-feedback">
+                    <div *ngIf="password.errors.required">Password is required.</div>
+            </div>
+            
+            <label for="psw"><b>Notifications:</b></label>
+            <input type = "text" name = "notification" placeholder = "notification" name="notification" [(ngModel)]="notifications" #notification="ngModel" required>
+            <div *ngIf="login.submitted && notification.invalid" class="invalid-feedback">
+                <div *ngIf="notification.errors.required">Notifications is required.</div>
+            </div>
+
+            <label for="psw"><b>Device Id:</b></label>
+            <input type = "text" name = "device_id" placeholder = "Device id" name="device_id" [(ngModel)]="device" #device_id="ngModel" required>
+            <div *ngIf="login.submitted && device_id.invalid" class="invalid-feedback">
+                <div *ngIf="device_id.errors.required">Device Id is required.</div>
+            </div>
+
+
+            <div class="clearfix">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+        </div>
+      </form>
+    </div>
+ </div>
+</div>

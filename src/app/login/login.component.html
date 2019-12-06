@@ -1,0 +1,22 @@
+<h1 style="text-align:center">Angular Test Login</h1>
+  <p>{{message}}</p>
+  <div class="login">
+    <h2 class="login-header">Log in</h2>
+    <form #loginForm = "ngForm" class="login-container" (ngSubmit)="login(loginForm.value)" novalidate>
+        
+      <!-- <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }"> -->
+        <input type = "email" name = "username" placeholder = "username" name="email" [(ngModel)]="email" #username="ngModel" required>
+        <div *ngIf="loginForm.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Email is required.</div>
+        </div>
+      
+        <input type = "password" name = "pass" placeholder = "Password" name="password" [(ngModel)]="password" #username="ngModel" required>
+        <div *ngIf="loginForm.submitted && password.invalid" class="invalid-feedback">
+                <div *ngIf="password.errors.required">Password is required.</div>
+        </div>
+      
+      <p>
+        <input type="submit" value="Log in">
+      </p>
+    </form>
+  </div>
